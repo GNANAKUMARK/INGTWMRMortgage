@@ -45,7 +45,7 @@ public class MortgageDetails implements Serializable{
 	private Double loanAmount;
 	
 	@Column(name="Tenure")
-	private int tenure;
+	private Integer tenure;
 	
 	@Column(name="Status")
 	private String status;
@@ -132,11 +132,11 @@ public class MortgageDetails implements Serializable{
 		this.loanAmount = loanAmount;
 	}
 
-	public int getTenure() {
+	public Integer getTenure() {
 		return tenure;
 	}
 
-	public void setTenure(int tenure) {
+	public void setTenure(Integer tenure) {
 		this.tenure = tenure;
 	}
 

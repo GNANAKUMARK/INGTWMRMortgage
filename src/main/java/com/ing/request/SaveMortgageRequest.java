@@ -2,6 +2,7 @@ package com.ing.request;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SaveMortgageRequest implements Serializable {
@@ -15,10 +16,13 @@ public class SaveMortgageRequest implements Serializable {
 	private Long mobileNumber;
 	private String address;
 	private String ssn;
+	@JsonIgnore
 	private Double assests;
+	@JsonIgnore
 	private Double liabilities;
 	@JsonProperty(value = "Tenure")
 	private Integer tenure;
+	@JsonProperty
 	private String creditStatus;
 	private Double applicantIncome;
 	private Double loanAmount;
