@@ -1,6 +1,7 @@
 package com.ing.service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,7 @@ public class MortgageServiceImpl implements MortgageService {
 
 	@Autowired
 	MortgageDao repo;
+
 	@Override
 	public SaveMortgageResponse saveMortgageDetails(SaveMortgageRequest request) {
 		MortgageDetails details = new MortgageDetails();
@@ -36,8 +38,15 @@ public class MortgageServiceImpl implements MortgageService {
 		details.setStatus(MortgageUtils.STATUS_INREVIEW);
 		details.setCreateTime(LocalDateTime.now());
 		details = repo.save(details);
-		response.setMessage(MortgageUtils.SAVE_RESPONSE+details.getId());
+		response.setMessage(MortgageUtils.SAVE_RESPONSE + details.getId());
 		return response;
 	}
 
+	
+
+	public List<MortgageDetails> findAll() {        return repo.findAll();    }
+
+	public MortgageDetails findDetailsById(int id) {      
+		return repo.findById(id).orElse(null);     
+		}
 }
