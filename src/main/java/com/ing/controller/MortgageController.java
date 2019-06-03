@@ -31,7 +31,7 @@ public class MortgageController {
 			LOGGER.error(e);
 			throw e;
 		}
-		return new ResponseEntity<SaveMortgageResponse>(response,HttpStatus.OK);
+		return new ResponseEntity<>(response,HttpStatus.OK);
 		
 	}
 
