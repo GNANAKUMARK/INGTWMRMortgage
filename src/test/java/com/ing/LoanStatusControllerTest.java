@@ -33,7 +33,7 @@ public class LoanStatusControllerTest {
 	@Test
 	public void updateLoanStatusSuccess() throws Exception {
 
-		LoanApproverStatus loanApproverStatus = new LoanApproverStatus(101l, "Credit", "Rejected", "Low Credit score");
+		LoanApproverStatus loanApproverStatus = new LoanApproverStatus(101, "Credit", "Rejected", "Low Credit score");
 		
 		Mockito.when(
 				loanStatusService.updateStatus(loanApproverStatus)).thenReturn(loanApproverStatus);

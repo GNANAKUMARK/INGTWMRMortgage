@@ -38,23 +38,23 @@ public class LoanStatusServiceTest {
 		Optional<MortgageDetails> mortgageDetailsOptional = Optional.of(mortgageDetails);
 		
 		Mockito.when(
-				loanStatusRepository.findById(1002l)).thenReturn(mortgageDetailsOptional);
+				loanStatusRepository.findById(1002)).thenReturn(mortgageDetailsOptional);
 		
 		Mockito.when(
 				loanStatusRepository.save(mortgageDetails)).thenReturn(mortgageDetails);
 
-		LoanApproverStatus loanApproverStatusRequest = new LoanApproverStatus(1002l, "Credit", "Rejected", "Low Credit score");
+		LoanApproverStatus loanApproverStatusRequest = new LoanApproverStatus(1002, "Credit", "Rejected", "Low Credit score");
 		//test
 		LoanApproverStatus loanApproverStatusResponse = loanStatusService.updateStatus(loanApproverStatusRequest);
          
-        verify(loanStatusRepository, times(1)).findById(1002l);
+        verify(loanStatusRepository, times(1)).findById(1002);
         verify(loanStatusRepository, times(1)).save(mortgageDetails);
         assertEquals(asJsonString(loanApproverStatusResponse), asJsonString(loanApproverStatusRequest));        
 	}
 	
 	@Test(expected=DataNotFoundException.class)
 	public void updateLoanStatusFailure() throws Exception {
-		loanStatusService.updateStatus(new LoanApproverStatus(1001l, "Credit", "Approved", "Good Credit score"));
+		loanStatusService.updateStatus(new LoanApproverStatus(1001, "Credit", "Approved", "Good Credit score"));
 	}
 	
 	public static String asJsonString(final Object obj) {
