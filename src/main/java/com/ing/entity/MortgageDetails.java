@@ -90,4 +90,28 @@ public class MortgageDetails implements Serializable {
 		this.loanAmount = loanAmount;
 		this.emailId = emailId;
 	}
+
+	public MortgageDetails(Integer id, String firstName, String lastName, Long mobile, String ssn, String address,
+			Double applicantIncome, Double loanAmount, Integer tenure, String status, String updatedBy, String emailId,
+			Double assests, Double liabilites, LocalDateTime createTime, LocalDateTime updatedTime) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.mobile = mobile;
+		this.ssn = ssn;
+		this.address = address;
+		this.applicantIncome = applicantIncome;
+		this.loanAmount = loanAmount;
+		this.tenure = tenure;
+		this.status = status;
+		this.updatedBy = updatedBy;
+		this.emailId = emailId;
+		this.assests = assests;
+		this.liabilites = liabilites;
+		this.createTime = createTime;
+		this.updatedTime = updatedTime;
+	}
+
+
 }

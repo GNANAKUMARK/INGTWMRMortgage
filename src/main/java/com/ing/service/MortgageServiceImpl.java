@@ -3,12 +3,14 @@ package com.ing.service;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ing.dao.MortgageDao;
 import com.ing.entity.MortgageDetails;
+import com.ing.request.MortgageRequest;
 import com.ing.request.SaveMortgageRequest;
 import com.ing.response.SaveMortgageResponse;
 import com.ing.utils.MortgageUtils;
@@ -48,5 +50,12 @@ public class MortgageServiceImpl implements MortgageService {
 
 	public MortgageDetails findDetailsById(int id) {      
 		return repo.findById(id).orElse(null);     
+		}
+	public MortgageDetails updateDetails(int id,MortgageRequest request) {  
+		MortgageDetails details = new MortgageDetails();       
+		BeanUtils.copyProperties(request,details);       
+		details.setId(id);       
+		//details.setTenure(2);        
+		return repo.save(details); 
 		}
 }

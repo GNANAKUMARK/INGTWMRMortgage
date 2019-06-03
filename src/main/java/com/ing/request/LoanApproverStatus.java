@@ -1,5 +1,7 @@
 package com.ing.request;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +13,7 @@ public class LoanApproverStatus {
 	private Integer id;
 	private String role;
 	private String status;
+	@JsonIgnore
 	private String reason;
 	
 	public LoanApproverStatus(Integer id, String role, String status, String reason) {
